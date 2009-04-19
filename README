@@ -1,0 +1,59 @@
+= MediaWiki Plugin for Laconica v0.1 =
+
+Converts MediaWiki-style freelinks into Wiki links:
+
+    This status message was written by [[Evan Prodromou]].
+
+would convert "[[Evan Prodromou]]" into a link to the Wiki of your
+choice.
+
+== Installation ==
+
+Copy MediaWikiPlugin.php into the plugins directory.
+
+Edit WIKI_BASE_URL in MediaWiikiPlugin.php to point to your Wiki's
+base URL.
+
+Add the following to config.php:
+
+    require_once('plugins/MediaWikiPlugin.php');
+    $wl = new MediaWikiPlugin();
+
+Enjoy!
+
+== To Do ==
+
+This was my first PHP script, and I didn't spend a lot of time trying
+to figure out PHP. There are a bunch of things I'd like to do better,
+and I welcome advice on making it better.
+
+  * Make preg_replace_callback call a MediaWikiPlugin method rather
+    than a function. This would allow people to specify the
+    WIKI_BASE_URL in the constructor rather than have to edit the
+    plugin itself.
+
+  * You could potentially use this plugin to support Wiki formatting:
+    bold, italics, you name it. Not sure this is desirable, but it
+    would be easy enough.
+
+  * May need some additional escaping in the Wiki link parsing. It's
+    pretty dumb right now.
+
+== Copyright and License ==
+
+Written by Eugene Eric Kim <eekim@blueoxen.com>.
+Copyright 2009 Blue Oxen Associates.
+
+    This program is free software: you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation, either version 3 of
+    the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public
+    License along with this program.  If not, see
+    <http://www.gnu.org/licenses/>.
